@@ -1,4 +1,4 @@
-import loadDotEnv from "./setup";
+import "./setup.ts";
 import { getConnectionManager } from "typeorm";
 
 export default async function connect () {

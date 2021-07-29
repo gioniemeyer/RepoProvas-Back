@@ -1,5 +1,7 @@
 import {Request, Response} from "express";
+import * as coursesServices from "../services/coursesServices";
 
-export function filter(req: Request, res: Response) {
-        res.send("OK!");
+export async function filter(req: Request, res: Response) {
+    const courses = await coursesServices.getCourses();
+    res.send(courses);
 }
