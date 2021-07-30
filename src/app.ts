@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/filter-courses", coursesControllers.filter);
-app.get("/filter-subjects", subjectsControllers.filter);
+app.post("/filter-subjects", subjectsControllers.filter);
 
 
 export default app;

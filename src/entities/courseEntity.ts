@@ -1,5 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, OneToMany } from "typeorm";
 import Subject from "./subjectEntity";
+import CourseSubjects from "./coursesSubjectsEntity"
 
 @Entity('courses')
 export default class Course {
@@ -11,4 +12,8 @@ export default class Course {
 
     @ManyToMany(() => Subject, subject => subject.courses)
     subjects: Subject[];
+
+    @OneToMany(() => CourseSubjects, courseSubject => courseSubject.courses)
+    coursesSubjects: CourseSubjects[];
+
 }
