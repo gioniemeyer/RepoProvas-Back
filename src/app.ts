@@ -14,8 +14,10 @@ app.use(express.json());
 
 app.get("/filter-courses", coursesControllers.filter);
 app.post("/filter-subjects", subjectsControllers.filter);
-app.post("/filter-professors", professorsControllers.filter);
+app.post("/filter-professors", professorsControllers.filterBySubject);
 app.post("/sendTest", testController.send);
+
+app.post("/filter-all-professors", professorsControllers.filterByCourses);
 
 export default app;
 
