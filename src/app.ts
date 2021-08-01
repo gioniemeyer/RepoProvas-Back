@@ -5,13 +5,17 @@ import connectDatabase from "./database";
 import * as coursesControllers from "./controllers/coursesControllers";
 import * as subjectsControllers from "./controllers/subjectsControllers";
 import * as professorsControllers from "./controllers/professorsControllers"
+import * as testController from "./controllers/testController"
+
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
 app.get("/filter-courses", coursesControllers.filter);
 app.post("/filter-subjects", subjectsControllers.filter);
 app.post("/filter-professors", professorsControllers.filter);
+app.post("/sendTest", testController.send);
 
 export default app;
 
