@@ -13,7 +13,7 @@ export default class Subject {
     Name: string;
 
     @Column()
-    semesterId: number;
+    semester: number;
 
     @ManyToMany(() => Course, course => course.subjects)
     courses: Course[];

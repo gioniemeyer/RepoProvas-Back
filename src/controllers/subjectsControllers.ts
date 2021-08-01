@@ -4,6 +4,7 @@ import * as subjectsServices from "../services/subjectsServices";
 export async function filter(req: Request, res: Response) {
     try {
         const id = parseInt(req.body.id);
+        console.log(id);
         const subjects = await subjectsServices.getSubjects(id);
         res.status(200).send(subjects);    
     } catch(err) {

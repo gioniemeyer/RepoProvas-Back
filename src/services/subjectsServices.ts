@@ -7,15 +7,5 @@ export async function getSubjects(id: number) {
         select: ['coursesId','subjects'],
         where: {"coursesId": id}
     })
-        return subjects;
+    return subjects;
 }
-
-// const subjects = await getRepository(Subject).find({
-//     relations: ['subjects', 'coursesSubjects', 'courses'],
-//     select:['id', 'Name'],
-//     where:[{"coursesId": id}]
-// })
-
-// const subjects = await getRepository(CourseSubjects).find({
-//     where: {"coursesId": id}
-// })

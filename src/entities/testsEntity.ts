@@ -16,4 +16,8 @@ export default class Test {
 
     @Column()
     pdfLink: string;
+
+    @Column()
+    courseId: number;
+
 }
