@@ -13,8 +13,16 @@ export async function create(body: BodyTest) {
 
 export async function findByProfessor(professorId: number) {
     const tests = await getRepository(Test).find({
-        select: ['categoryId', 'id','pdfLink', 'professorId', 'subjectId'],
+        select: ['categoryId', 'id','pdfLink', 'professorId', 'subjectId', 'year', 'yearSemester'],
         where: [{professorId: professorId}]
+    })
+    return tests;
+}
+
+export async function findBySubject(subjectId: number) {
+    const tests = await getRepository(Test).find({
+        select: ['categoryId', 'id','pdfLink', 'professorId', 'subjectId', 'year', 'yearSemester'],
+        where: [{subjectId: subjectId}]
     })
     return tests;
 }

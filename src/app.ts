@@ -19,6 +19,10 @@ app.post("/sendTest", testController.send);
 
 app.post("/filter-all-professors", professorsControllers.filterByCourses);
 app.get("/tests/professorId/:professorId", testController.findByProfessorId)
+app.get("/subjects", subjectsControllers.findAll);
+
+app.get("/tests/subjectId/:subjectId", testController.findBySubjectId)
+app.get("/professors", professorsControllers.findAll);
 
 export default app;
 

@@ -10,3 +10,12 @@ export async function filter(req: Request, res: Response) {
         res.status(500).send(err)
     }
 }
+
+export async function findAll(req: Request, res: Response) {
+    try {
+        const subjects = await subjectsServices.getAll()
+        res.status(200).send(subjects);
+    } catch(err) {
+        res.status(500).send(err)
+    }
+}

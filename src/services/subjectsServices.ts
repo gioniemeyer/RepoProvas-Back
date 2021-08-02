@@ -1,5 +1,6 @@
 import { getRepository } from "typeorm";
 import CourseSubjects from "../entities/coursesSubjectsEntity";
+import Subject from "../entities/subjectEntity";
 
 export async function getSubjects(id: number) {
     const subjects = await getRepository(CourseSubjects).find({
@@ -7,5 +8,10 @@ export async function getSubjects(id: number) {
         select: ['coursesId','subjects'],
         where: {"coursesId": id}
     })
+    return subjects;
+};
+
+export async function getAll() {
+    const subjects = await getRepository(Subject).find()
     return subjects;
 }

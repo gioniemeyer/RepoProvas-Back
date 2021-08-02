@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import Subject from "./subjectEntity";
 
 @Entity('tests')
 export default class Test {
@@ -25,5 +26,7 @@ export default class Test {
 
     @Column()
     yearSemester: number;
-
+    
+    @ManyToOne(() => Subject, subjects => subjects.tests)
+    subjects: Subject;
 }

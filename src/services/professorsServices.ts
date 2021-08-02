@@ -1,4 +1,5 @@
 import { getRepository } from "typeorm";
+import Professor from "../entities/professorsEntity";
 import ProfessorsSubjects from "../entities/professorsSubjects";
 import SubjectInterface from "../interfaces/subjectInterface";
 
@@ -11,7 +12,7 @@ export async function getProfessors(id: number) {
     return (professors)
 };
 
-export async function getAllProfessors(subjects: SubjectInterface[]) {
+export async function getAllProfessorsBySubj(subjects: SubjectInterface[]) {
     const response = [];
     const objectForProfessors: any = {};
     const professors = await getRepository(ProfessorsSubjects).find({
@@ -31,4 +32,10 @@ export async function getAllProfessors(subjects: SubjectInterface[]) {
         }
     }
     return (response)
+}
+
+export async function getAll() {
+    const professors = await getRepository(Professor).find();
+
+    return professors
 }

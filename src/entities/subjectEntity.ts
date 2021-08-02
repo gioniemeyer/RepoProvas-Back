@@ -3,6 +3,7 @@ import Course from "./courseEntity";
 import CourseSubjects from "./coursesSubjectsEntity"
 import Professor from "./professorsEntity";
 import ProfessorsSubjects from "./professorsSubjects";
+import Test from "./testsEntity";
 
 @Entity('subjects')
 export default class Subject {
@@ -26,4 +27,7 @@ export default class Subject {
 
     @OneToMany(() => ProfessorsSubjects, professorsSubjects => professorsSubjects.subjects)
     professorsSubjects: ProfessorsSubjects[];
+
+    @OneToMany(() => Test, tests => tests.subjects)
+    tests: Test[];
 }

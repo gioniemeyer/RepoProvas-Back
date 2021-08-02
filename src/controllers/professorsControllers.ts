@@ -17,9 +17,18 @@ export async function filterByCourses(req: Request, res: Response) {
         const id = parseInt(req.body.id);
         let subjectsArray = await subjectsServices.getSubjects(id);
         const subjects = subjectsArray.map(subject => subject.subjects);
-        const professors = await professorsServices.getAllProfessors(subjects);
+        const professors = await professorsServices.getAllProfessorsBySubj(subjects);
         return res.status(200).send(professors)
     } catch(err) {
         res.status(500).send(err);
+    }
+}
+
+export async function findAll(req: Request, res: Response) {
+    try {
+        const professors = await professorsServices.getAll()
+        res.status(200).send(professors);
+    } catch(err) {
+        res.status(500).send(err)
     }
 }
