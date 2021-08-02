@@ -1,4 +1,4 @@
-import "./setup.ts";
+import "./setup";
 import { getConnectionManager } from "typeorm";
 
 export default async function connect () {
