@@ -4,4 +4,6 @@ export default interface BodyTest {
     professorId: number;
     category: string;
     pdfLink: string;
+    year: number;
+    yearSemester: number;
 }

@@ -5,8 +5,16 @@ import BodyTest from "../interfaces/testInterface";
 import CategoryInterface from "../interfaces/categoryInterface";
 
 export async function create(body: BodyTest) {
-    const {courseId, subjectId, professorId, category, pdfLink} = body
+    const {courseId, subjectId, professorId, category, pdfLink, year, yearSemester} = body
     const categoryObj: CategoryInterface = await getRepository(Category).findOne({Name: category})
     const categoryId = categoryObj.id;
-    await getRepository(Test).insert({courseId, subjectId, professorId, categoryId, pdfLink})
+    await getRepository(Test).insert({courseId, subjectId, professorId, categoryId, pdfLink, year, yearSemester})
+}
+
+export async function findByProfessor(professorId: number) {
+    const tests = await getRepository(Test).find({
+        select: ['categoryId', 'id','pdfLink', 'professorId', 'subjectId'],
+        where: [{professorId: professorId}]
+    })
+    return tests;
 }

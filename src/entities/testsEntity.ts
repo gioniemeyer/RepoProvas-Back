@@ -20,4 +20,10 @@ export default class Test {
     @Column()
     courseId: number;
 
+    @Column()
+    year: number;
+
+    @Column()
+    yearSemester: number;
+
 }

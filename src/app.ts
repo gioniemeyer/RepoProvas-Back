@@ -18,6 +18,7 @@ app.post("/filter-professors", professorsControllers.filterBySubject);
 app.post("/sendTest", testController.send);
 
 app.post("/filter-all-professors", professorsControllers.filterByCourses);
+app.get("/tests/professorId/:professorId", testController.findByProfessorId)
 
 export default app;
 
